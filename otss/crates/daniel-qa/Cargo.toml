@@ -1,0 +1,24 @@
+[package]
+name = "otss-qa"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "Integration testing framework and quality assurance tools"
+
+[dependencies]
+tokio.workspace = true
+tracing.workspace = true
+tracing-subscriber.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+anyhow.workspace = true
+rust_decimal.workspace = true
+otss-core.workspace = true
+otss-integration.workspace = true
+otss-data.workspace = true
+uuid = { version = "1.6", features = ["v4"] }
+
+[dev-dependencies]
+thiserror.workspace = true

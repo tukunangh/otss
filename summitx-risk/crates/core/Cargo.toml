@@ -1,0 +1,14 @@
+[package]
+name = "summitx-risk-core"
+version.workspace = true
+edition.workspace = true
+description = "CORE-001: Risk Engine Foundation - Pure domain logic for trading risk management"
+
+[dependencies]
+rust_decimal = { workspace = true }
+rust_decimal_macros = { workspace = true }
+thiserror = { workspace = true }
+serde = { workspace = true }
+chrono = { version = "0.4", features = ["serde"] }
+
+[dev-dependencies]

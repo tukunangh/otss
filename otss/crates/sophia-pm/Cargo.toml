@@ -1,0 +1,24 @@
+[package]
+name = "otss-pm"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "Project Management and orchestration utilities"
+
+[dependencies]
+tokio.workspace = true
+tracing.workspace = true
+tracing-subscriber.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+anyhow.workspace = true
+otss-core.workspace = true
+
+[[bin]]
+name = "otss-pm"
+path = "src/main.rs"
+
+[dev-dependencies]
+thiserror.workspace = true

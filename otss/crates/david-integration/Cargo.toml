@@ -1,0 +1,21 @@
+[package]
+name = "otss-integration"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "Broker adapter implementations (DAS Trader, etc.)"
+
+[dependencies]
+tokio.workspace = true
+rust_decimal.workspace = true
+tracing.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+anyhow.workspace = true
+otss-core.workspace = true
+uuid = { version = "1.6", features = ["v4"] }
+
+[dev-dependencies]
+thiserror.workspace = true

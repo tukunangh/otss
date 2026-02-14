@@ -1,0 +1,18 @@
+[package]
+name = "otss-devops"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "CI/CD pipelines, build automation, and deployment scripts"
+
+[dependencies]
+tokio.workspace = true
+tracing.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+anyhow.workspace = true
+
+[dev-dependencies]
+thiserror.workspace = true
