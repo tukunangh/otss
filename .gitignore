@@ -1,4 +1,4 @@
-# Agent personal files — DO NOT COMMIT
+# Agent personal files — NEVER COMMIT
 SOUL.md
 HEARTBEAT.md
 IDENTITY.md
@@ -8,3 +8,6 @@ BOOTSTRAP.md
 MEMORY.md
 .agents/
 skills/
+
+# Compiled objects
+*.o
