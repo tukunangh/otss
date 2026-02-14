@@ -1,7 +1,10 @@
-# Agent personal files - removed per security directive
+# Agent personal files — DO NOT COMMIT
 SOUL.md
 HEARTBEAT.md
 IDENTITY.md
 TOOLS.md
+USER.md
+BOOTSTRAP.md
 MEMORY.md
-*.md
+.agents/
+skills/
