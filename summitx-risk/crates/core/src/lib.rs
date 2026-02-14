@@ -9,6 +9,7 @@
 //! - [`Position`]: Position tracking per symbol
 //! - [`RiskLimit`]: Configurable risk boundaries
 //! - [`RiskViolation`]: Risk check failure reasons
+//! - [`Order`]: Order with simplified state machine (CORE-003)
 //! - [`OrderState`]: Explicit order lifecycle state machine
 //!
 //! # Financial Precision
@@ -20,31 +21,40 @@
 //!
 //! ```
 //! use rust_decimal_macros::dec;
-//! use summitx_risk_core::{RiskManager, RiskLimit, Side};
+//! use summitx_risk_core::{Order, Side, OrderId};
 //!
-//! // Create risk configuration
-//! let limits = RiskLimit::new(dec!(1000), dec!(-5000));
+//! // Create an order
+//! let mut order = Order::new("order-1", "BTC-USD", Side::Buy, dec!(100))
+//!     .with_price(dec!(50000));
 //!
-//! // Create risk manager
-//! let manager = RiskManager::new(limits);
+//! // Submit to exchange
+//! order.submit(OrderId::new("ex-123")).unwrap();
 //!
-//! // Check order against risk limits
-//! let result = manager.validate_order("BTC", &dec!(100), &dec!(10), Side::Buy);
-//! assert!(result.is_pass());
+//! // Fill partially
+//! order.fill(dec!(50)).unwrap();
 //! ```
 
 pub mod order;
 pub mod risk;
 pub mod types;
 
+// CORE-003: Export simplified order state machine types from order module
 pub use order::{
-    OrderId, OrderSide, OrderStatus, TimeInForce, Order, Fill,
-    OrderStatusTransitionError,
+    Order, OrderError, OrderId, OrderState, Quantity, Price, Side, Symbol, Timestamp,
+    StateTransition,
 };
+
+// Export types from risk module
 pub use risk::{RiskManager, RiskCheckResult};
+
+// Export types from types module (legacy, for backwards compatibility)
 pub use types::{
-    Position, RiskLimit, RiskViolation, OrderState, Side, Symbol,
-    ValidationContext,
+    // New types module uses u64 for OrderId, export separately if needed
+    Position, RiskLimit, RiskViolation, ValidationContext,
+    // Old OrderState is different from new OrderState - only export if needed
+    OrderState as TypesOrderState, 
+    StateTransitionError,
+    Fill, Side as TypesSide,
 };
 
 /// Core version
