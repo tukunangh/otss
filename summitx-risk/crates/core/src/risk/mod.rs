@@ -16,7 +16,7 @@
 //! use rust_decimal_macros::dec;
 //! use summitx_risk_core::risk::RiskManager;
 //! use summitx_risk_core::RiskLimit;
-//! use summitx_risk_core::Side;
+//! use summitx_risk_core::types::Side;
 //!
 //! let limits = RiskLimit::new(dec!(1000), dec!(-5000));
 //! let manager = RiskManager::new(limits);
